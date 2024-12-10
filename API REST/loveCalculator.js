@@ -7,12 +7,18 @@ xhr.addEventListener('readystatechange', function () {
 	if (this.readyState === this.DONE) {
 		let resultado = JSON.parse(this.response)
 		document.getElementById("p").innerHTML = resultado.percentage +"%"
-		console.log(resultado)
-	}
-	if(resultado.percentage < 50){
-		document.getElementById("foto").src = "./50.png"
-	}	if(resultado.percentage > 50){
-		document.getElementById("foto").src = "./50.png"
+		console.log(resultado);
+		if(parseInt(resultado.percentage)<20){
+			document.getElementById("foto").src = "../img/pngwing.com.png"
+		}if(parseInt(resultado.percentage)>20 && resultado.percentage<50){
+				document.getElementById("foto").src = "./"
+		}if(parseInt(resultado.percentage)<50){
+			document.getElementById("foto").src = "./"
+		}if(parseInt(resultado.percentage)>50 && resultado.percentage<75){
+			document.getElementById("foto").src = "./"
+		}if(parseInt(resultado.percentage)>75){
+			document.getElementById("foto").src = "./"
+		}
 	}
 });
 
