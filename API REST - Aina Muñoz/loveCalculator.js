@@ -8,14 +8,18 @@ xhr.addEventListener('readystatechange', function () {
 		let resultado = JSON.parse(this.response)
 		document.getElementById("p").innerHTML = resultado.percentage +"%"
 		console.log(resultado);
-		if(parseInt(resultado.percentage)<=20){
-			document.getElementById("foto").src = "./img/20.png";
-		}if(parseInt(resultado.percentage)>20 && resultado.percentage<=50){
-				document.getElementById("foto").src = "./img/20-50.png"
+		if(parseInt(resultado.percentage)<=25){
+			document.getElementById("foto").src = "./img/triste.png"
+			document.getElementById("r").innerHTML="Búscate a otro mejor"
+		}if(parseInt(resultado.percentage)>25 && resultado.percentage<=50){
+			document.getElementById("foto").src = "./img/confuso.png"
+			document.getElementById("r").innerHTML="Solo sois amigos..."
 		}if(parseInt(resultado.percentage)>50 && resultado.percentage<=75){
-			document.getElementById("foto").src = "./img/50-75.png"
+			document.getElementById("foto").src = "./img/sonriente.png"
+			document.getElementById("r").innerHTML="Amor bueno, pero no te ilusiones"
 		}if(parseInt(resultado.percentage)>75){
-			document.getElementById("foto").src = "./img/75-100.png"
+			document.getElementById("foto").src = "./img/sonrisa.png"
+			document.getElementById("r").innerHTML="¡Almas gemelas!"
 		}
 	}
 });
